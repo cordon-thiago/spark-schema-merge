@@ -1,0 +1,10 @@
+version: '3'
+services:
+  spark:
+    image: jupyter/all-spark-notebook-custom
+    ports:
+      - "8888:8888"
+      - "4040-4080:4040-4080"
+    volumes:
+      - ../notebooks:/home/jovyan/work/notebooks/
+      - ../spark-data:/home/jovyan/work/spark-data/
