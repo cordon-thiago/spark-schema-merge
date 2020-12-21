@@ -7,12 +7,13 @@ class DataGenerator:
         self.spark = spark
         self.sc = sc
 
-    def gen_data_simple_schema(self, data_path, partition_date, num_rows):
+    def gen_data_simple_schema(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample with a simple schema
         """
@@ -49,7 +50,7 @@ class DataGenerator:
             except:
                 df = df_temp
         
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
         
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
@@ -59,12 +60,13 @@ class DataGenerator:
         
         return
 
-    def gen_data_add_nested_struct(self, data_path, partition_date, num_rows):
+    def gen_data_add_nested_struct(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample adding a nested struct to the schema
         """
@@ -122,8 +124,8 @@ class DataGenerator:
             except:
                 df = df_temp
                 
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
-        
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
+
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
         print('Schema:')
@@ -132,12 +134,13 @@ class DataGenerator:
         
         return
 
-    def gen_data_add_columns(self, data_path, partition_date, num_rows):
+    def gen_data_add_columns(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample adding columns to the schema
         """
@@ -199,8 +202,8 @@ class DataGenerator:
             except:
                 df = df_temp
                 
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
-        
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
+
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
         print('Schema:')
@@ -209,12 +212,13 @@ class DataGenerator:
         
         return
 
-    def gen_data_change_datatype_add_struct(self, data_path, partition_date, num_rows):
+    def gen_data_change_datatype_add_struct(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample changing data types and adding a struct to the schema
         """
@@ -299,8 +303,8 @@ class DataGenerator:
             except:
                 df = df_temp
                 
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
-        
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
+
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
         print('Schema:')
@@ -309,12 +313,13 @@ class DataGenerator:
         
         return
 
-    def gen_data_change_column_name(self, data_path, partition_date, num_rows):
+    def gen_data_change_column_name(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample changing column name
         """
@@ -399,8 +404,8 @@ class DataGenerator:
             except:
                 df = df_temp
                 
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
-        
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
+
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
         print('Schema:')
@@ -409,12 +414,13 @@ class DataGenerator:
         
         return
 
-    def gen_data_remove_column(self, data_path, partition_date, num_rows):
+    def gen_data_remove_column(self, data_path, partition_date, num_rows, file_format):
         """
         Input
         - data_path: path where the partition will be created (string)
         - partition_date: partition date to be created (date)
         - num_rows: number of rows to be generated (integer)
+        - file_format: format of file to be generated (parquet or avro)
 
         This function creates a data sample removing some columns
         """
@@ -497,8 +503,8 @@ class DataGenerator:
             except:
                 df = df_temp
                 
-        df.coalesce(1).write.partitionBy('date').mode('overwrite').parquet(data_path)
-        
+        df.coalesce(1).write.partitionBy('date').mode('overwrite').format(file_format).save(data_path)
+
         print('Partition created: {data_path}/date={date}'.format(data_path=data_path,date=partition_date))
         print('# Rows:',df.count())
         print('Schema:')
