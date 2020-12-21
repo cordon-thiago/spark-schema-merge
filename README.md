@@ -1,12 +1,14 @@
 # spark-schema-merge
 Spark app to merge different schemas.
 
-# Setup and run via Jupyter Notebook
+# Setup
 
 Clone the project.
 ```
 git clone https://github.com/cordon-thiago/spark-schema-merge
 ```
+
+## Setup and run via Jupyter Notebook
 
 If you want to use Jupyter Notebook, follow these steps:
 
@@ -33,7 +35,7 @@ The output of the log contains the URL to the notebook:
 * You can choose the file format to generate the data (`parquet` or `avro`) in the variable `file_format`.
 
 
-# Setup and run via Spark Cluster
+## Setup and run via Spark Cluster
 
 If you want to use a Spark Cluster, follow these steps:
 
