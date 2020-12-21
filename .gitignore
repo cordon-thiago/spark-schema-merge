@@ -1,0 +1,8 @@
+date=*
+_SUCCESS
+*.crc
+*.parquet
+*.pyc
+test_data_parquet.json
+.devcontainer
+.ipynb_checkpoints
