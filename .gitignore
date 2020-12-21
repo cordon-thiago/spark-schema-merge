@@ -4,5 +4,6 @@ _SUCCESS
 *.parquet
 *.pyc
 test_data_parquet.json
+test_data_avro.json
 .devcontainer
 .ipynb_checkpoints
