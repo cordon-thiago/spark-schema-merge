@@ -3,6 +3,11 @@ Spark app to merge different schemas.
 
 # Setup and run via Jupyter Notebook
 
+Clone the project.
+```
+git clone https://github.com/cordon-thiago/spark-schema-merge
+```
+
 If you want to use Jupyter Notebook, follow these steps:
 
 1 - Build docker image.
